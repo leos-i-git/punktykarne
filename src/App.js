@@ -20,11 +20,7 @@ function PktKarne() {
 
   console.log("");
 
-
-  console.log("updatezgithubahujhujhuj");
-
-
-    
+ 
 }
 
 const onSubmit = (e) => {

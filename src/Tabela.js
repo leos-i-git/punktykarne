@@ -7,9 +7,7 @@ import React, { Component } from 'react';
 
 class Tabela extends Component {
 	
-    constructor(props) {
-        super(props);
-    }
+
 	
     state = {  }
     render() {  
@@ -24,11 +22,20 @@ class Tabela extends Component {
 			var seria = sessionStorage.getItem("Seria");
 			var punkty = sessionStorage.getItem("Punkty");
 			var opis = sessionStorage.getItem("Opis");
-			var d = document.getElementById("jazda");
+		
 			let bemc = ""+kierowca+seria+"";
 			let pktbemc = ""+kierowca+"pkt";
 			console.log(pktbemc);
 			let suma =parseFloat(document.getElementById(pktbemc).innerText) + parseFloat(punkty);
+
+			if (suma >=10){
+			document.getElementById(pktbemc).style.color = "red";
+			document.getElementById(pktbemc).style.fontWeight = "750";
+			}
+			else if (suma <=9){
+				document.getElementById(pktbemc).style.color = "black";
+				document.getElementById(pktbemc).style.fontWeight = "400";
+			}
 
 			
 			
@@ -37,52 +44,52 @@ class Tabela extends Component {
 			var obrazek = document.createElement("IMG");
 			obrazek.setAttribute("title", opis);
 	
-			if (flaga == "at"){
+			if (flaga === "at"){
 				obrazek.setAttribute("src", "/images/flags/png/at.png");
 			}
-			else if (flaga == "au"){
+			else if (flaga === "au"){
 				obrazek.setAttribute("src", "/images/flags/png/au.png");
 			}
-			else if (flaga == "be"){
+			else if (flaga === "be"){
 				obrazek.setAttribute("src", "/images/flags/png/be.png");
 			}
-			else if (flaga == "bh"){
+			else if (flaga === "bh"){
 				obrazek.setAttribute("src", "/images/flags/png/bh.png");
 			}
-			else if (flaga == "ca"){
+			else if (flaga === "ca"){
 				obrazek.setAttribute("src", "/images/flags/png/ca.png");
 			}
-			else if (flaga == "cz"){
+			else if (flaga === "cz"){
 				obrazek.setAttribute("src", "/images/flags/png/cz.png");
 			}
-			else if (flaga == "de"){
+			else if (flaga === "de"){
 				obrazek.setAttribute("src", "/images/flags/png/de.png");
 			}
-			else if (flaga == "es"){
+			else if (flaga === "es"){
 				obrazek.setAttribute("src", "/images/flags/png/es.png");
 			}
-			else if (flaga == "hu"){
+			else if (flaga === "hu"){
 				obrazek.setAttribute("src", "/images/flags/png/hu.png");
 			}
-			else if (flaga == "it"){
+			else if (flaga === "it"){
 				obrazek.setAttribute("src", "/images/flags/png/it.png");
 			}
-			else if (flaga == "kr"){
+			else if (flaga === "kr"){
 				obrazek.setAttribute("src", "/images/flags/png/kr.png");
 			}
-			else if (flaga == "mc"){
+			else if (flaga === "mc"){
 				obrazek.setAttribute("src", "/images/flags/png/mc.png");
 			}
-			else if (flaga == "nl"){
+			else if (flaga === "nl"){
 				obrazek.setAttribute("src", "/images/flags/png/nl.png");
 			}
-			else if (flaga == "sa"){
+			else if (flaga === "sa"){
 				obrazek.setAttribute("src", "/images/flags/png/sa.png");
 			}
-			else if (flaga == "th"){
+			else if (flaga === "th"){
 				obrazek.setAttribute("src", "/images/flags/png/th.png");
 			}
-			else if (flaga == "uk"){
+			else if (flaga === "uk"){
 				obrazek.setAttribute("src", "/images/flags/png/uk.png");
 			}
 			
@@ -102,9 +109,9 @@ class Tabela extends Component {
 			document.getElementById(bemc).appendChild(obrazek);
 			var calosc = ""+" "+punkty+" ";
 			document.getElementById(bemc).insertAdjacentHTML('beforeend', calosc);
-			console.log(d.innerHTML);
+			
 	
-			console.log(sortTable.innerHTML)
+			
 	
 			
 	}
@@ -120,18 +127,22 @@ class Tabela extends Component {
 		}
 	}
 		function submit(){
+			sortTable();
 			upload();
 			sortTable();
-
+			pokazkoda();
 		}
-		
-		
+		function pokazkoda(){
+			var d = document.getElementById("jazda");
+			console.log(d.innerHTML);
+		}
+
 		  
         return (
 			
             <div>
 				<div id="jazda">
-                <table id='tabelka' >
+                <table id='tabelka'>
 	<thead>
 		<tr>
 			<th><b>ŁĄCZNIE</b></th>
@@ -145,7 +156,7 @@ class Tabela extends Component {
 	</thead>
 	<tbody>
 		<tr>
-			<td id="Tomaszpkt"><font color="red"><b>11</b></font></td>
+			<td id="Tomaszpkt">11</td>
 			<td >Tomasz</td>
 			<td id="Tomaszf1"></td> 
 			<td id="Tomaszf3"></td>

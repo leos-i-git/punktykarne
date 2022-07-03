@@ -21,7 +21,7 @@ function PktKarne() {
   console.log("");
 
 
-
+  console.log("updatezgithubahujhujhuj");
 
 
     

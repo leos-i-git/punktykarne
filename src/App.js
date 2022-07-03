@@ -20,10 +20,7 @@ function PktKarne() {
 
   console.log("");
 
-  if (seria == "f1"){
-    document.getElementById("kodzik").innerHTML = "<pre><code>Upewnij się że podane informacje są poprawne, następnie załaduj Dane do tabeli:<br/> Kto: "+driver+"<br/>Seria: "+seria+ "<br/> Państwo, nazwa toru i numer wyścigu: "+flaga+" ,"+ opis + "<br/>Punkty:" +punkty + " </code></pre>";
-  
-  }
+
 
 
 

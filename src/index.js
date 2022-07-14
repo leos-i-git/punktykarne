@@ -15,6 +15,7 @@ const tabela = ReactDOM.createRoot(document.getElementById('tabela'))
 tabela.render(
   <React.StrictMode>
     <Tabela/>
+  
   </React.StrictMode>
 )
 

@@ -92,7 +92,7 @@ class App extends Component {
 
           </select>
           <br />
-          <label>Kierowca(bez spacji) i Seria</label> <input className="format"required id="kierowca" type="text"></input> <select id="seria" required>
+          <label>Kierowca i Seria</label> <input className="format"required id="kierowca" type="text"></input> <select id="seria" required>
             <option value="f1">Seria F1</option>
             <option value="f3">Seria F3</option>
             <option value="atc">Seria ATC</option>

@@ -17,7 +17,6 @@ function PktKarne() {
   sessionStorage.setItem("Punkty", punkty);
   sessionStorage.setItem("Opis", opis);
 
-  console.log("elo");
   
 }
 
@@ -34,15 +33,42 @@ const onSubmit = (e) => {
 
   sessionStorage.setItem("Data", dateTime);
 };
+function AddDriver(e){
+e.preventDefault();
+let kierowca = document.getElementById("nickname").value;
+console.log(kierowca);
+var table = document.getElementById("tabelka");
+var row = table.insertRow();
+var punktykierowcy = row.insertCell();
+  punktykierowcy.innerHTML = "0";
+  punktykierowcy.id=""+kierowca+"pkt";
+var nazwakierowcy = row.insertCell();
+    nazwakierowcy.innerHTML = ""+kierowca+"";
+var seriaf1 = row.insertCell();
+  seriaf1.id = ""+kierowca+"f1";
+var seriaf3 = row.insertCell();
+  seriaf3.id = ""+kierowca+"f3";
+var seriaatc = row.insertCell();
+  seriaatc.id = ""+kierowca+"atc";
+var seriagt = row.insertCell();
+  seriagt.id = ""+kierowca+"gt";
+var seriaev = row.insertCell();
+  seriaev.id = ""+kierowca+"ev";
+
+
+
+  
+
+
+}
 
 class App extends Component {
 
-  state = {
-  }
 
   render() {
     return (
       <div className="App">
+        <h1>Dodaj nowe punkty karne dla kierowcy</h1>
         <form onSubmit={onSubmit} name="formularz" method="get">
           <label>Państwo</label> <select id="panstwo" required>
             <option value="sa">Arabia Saudyjska</option>
@@ -66,7 +92,7 @@ class App extends Component {
 
           </select>
           <br />
-          <label>Kierowca(bez spacji) i Seria</label> <input required id="kierowca" type="text"></input> <select id="seria" required>
+          <label>Kierowca(bez spacji) i Seria</label> <input className="format"required id="kierowca" type="text"></input> <select id="seria" required>
             <option value="f1">Seria F1</option>
             <option value="f3">Seria F3</option>
             <option value="atc">Seria ATC</option>
@@ -83,6 +109,12 @@ class App extends Component {
 
 
 
+        </form>
+        <h1>Dodaj nowego kierowcę</h1>
+        <form name="Dodajkierowcę" method="get">
+        <label>Kierowca:</label><input className='format' id="nickname" type="text"></input><br/>
+
+        <button onClick={AddDriver}>Zatwierdź</button>
         </form>
         <span id="kodzik"></span>
       </div>);

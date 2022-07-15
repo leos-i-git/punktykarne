@@ -15,18 +15,15 @@ class Tabela extends Component {
 		function upload() {
 
 			var dateTime = sessionStorage.getItem("Data");
-			console.log("hello");
 			console.log(dateTime);
 			var kierowca = sessionStorage.getItem("Kierowca");
 			var flaga = sessionStorage.getItem("Flaga");
 			var seria = sessionStorage.getItem("Seria");
 			var punkty = sessionStorage.getItem("Punkty");
 			var opis = sessionStorage.getItem("Opis");
-			console.log("hello2");
 		
 			let bemc = ""+kierowca+seria+"";
 			let pktbemc = ""+kierowca+"pkt";
-			console.log("hello3");
 			console.log(pktbemc);
 			let suma =parseFloat(document.getElementById(pktbemc).innerText) + parseFloat(punkty);
 

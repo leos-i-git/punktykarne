@@ -64,6 +64,24 @@ var seriaev = row.insertCell();
 
 class App extends Component {
 
+  componentDidMount() {
+    // call api or anything
+    console.log("Component has been rendered");
+
+    var tableHtml = "/punkty-karne.html"
+   // var tableHtml = 'http://localhost/MyTestWordPressPage/wp-content/punkty-karne.html'
+
+    fetch(tableHtml)
+    .then(function(response){
+        return response.text();
+    }).then(function (data) {
+
+    var d = document.getElementById("tabeleczka");
+    d.innerHTML = data;
+})
+};
+
+
 
   render() {
     return (

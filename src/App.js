@@ -205,29 +205,29 @@ function pokazkoda(){
 }
 
 class App extends Component {
-
-  componentDidMount() {
-    // call api or anything
-    console.log("Component has been rendered");
-
-    var tableHtml = "/punkty-karne.html"
-   // var tableHtml = 'http://localhost/MyTestWordPressPage/wp-content/punkty-karne.html'
-
-    fetch(tableHtml)
-    .then(function(response){
-        return response.text();
-    }).then(function (data) {
-
+ 
+// On file select (from the pop up) 
+onFileChange = async (e) => {
+  e.preventDefault()
+  const reader = new FileReader()
+  reader.onload = async (e) => { 
+    const text = (e.target.result)
     var d = document.getElementById("tabeleczka");
-    d.innerHTML = data;
-})
-};
+    d.innerHTML = text;
 
-
+  };
+  reader.readAsText(e.target.files[0])
+}
 
   render() {
     return (
+
       <div className="App">
+
+          
+      <div> 
+        <input type="file" onChange={this.onFileChange} />
+      </div> 
         <h1>Dodaj nowe punkty karne dla kierowcy</h1>
         <form onSubmit={onSubmit} name="formularz" method="get">
           <label>Państwo</label> <select id="panstwo" required>

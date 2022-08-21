@@ -40,7 +40,7 @@ e.preventDefault();
 let kierowca = document.getElementById("nickname").value;
 console.log(kierowca);
 var table = document.getElementById("tabelka");
-var row = table.insertRow();
+var row = table.getElementsByTagName('tbody').item(0).insertRow();
 var punktykierowcy = row.insertCell();
   punktykierowcy.innerHTML = "0";
   punktykierowcy.id=""+kierowca+"pkt";
@@ -48,12 +48,12 @@ var nazwakierowcy = row.insertCell();
     nazwakierowcy.innerHTML = ""+kierowca+"";
 var seriaf1 = row.insertCell();
   seriaf1.id = ""+kierowca+"f1";
-var seriaf3 = row.insertCell();
-  seriaf3.id = ""+kierowca+"f3";
 var seriaatc = row.insertCell();
   seriaatc.id = ""+kierowca+"atc";
-var seriagt = row.insertCell();
-  seriagt.id = ""+kierowca+"gt";
+var seriaacc = row.insertCell();
+seriaacc.id = ""+kierowca+"acc";
+var seriamulti = row.insertCell();
+seriamulti.id = ""+kierowca+"multi";
 var seriaev = row.insertCell();
   seriaev.id = ""+kierowca+"ev";
 
@@ -182,7 +182,9 @@ function upload() {
 
   
 }
-function sortTable(sortColumn){
+function sortTable(){
+  console.log("sortTable");
+var sortColumn = 0;
 var tableData = document.getElementById("tabelka").getElementsByTagName('tbody').item(0);
 var rowData = tableData.getElementsByTagName('tr');            
 for(var i = 0; i < rowData.length - 1; i++){
@@ -253,10 +255,10 @@ onFileChange = async (e) => {
           </select>
           <br />
           <label>Kierowca i Seria</label> <input className="format"required id="kierowca" type="text"></input> <select id="seria" required>
-            <option value="f1">Seria F1</option>
-            <option value="f3">Seria F3</option>
-            <option value="atc">Seria ATC</option>
-            <option value="gt">Seria GT</option>
+            <option value="f1">F1</option>
+            <option value="atc">ATC</option>
+            <option value="acc">ACC</option>
+            <option value="multi">Multiclass</option>
             <option value="ev">Eventy</option>
 
           </select>
